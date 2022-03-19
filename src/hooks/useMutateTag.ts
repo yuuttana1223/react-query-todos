@@ -5,13 +5,13 @@ import { Tag } from "types";
 import { resetEditedTag } from "slices/taskSlice";
 
 const postTag = async (tag: Omit<Tag, "id">) =>
-  axios.post<Tag>(`${process.env.LOCAL_API_URL}/tags/`, tag);
+  axios.post<Tag>(`${process.env.REACT_APP_API_URL}/tags/`, tag);
 
 const patchTag = async (tag: Tag) =>
-  axios.patch<Tag>(`${process.env.LOCAL_API_URL}/tags/${tag.id}/`, tag);
+  axios.patch<Tag>(`${process.env.REACT_APP_API_URL}/tags/${tag.id}/`, tag);
 
 const deleteTag = async (id: number) =>
-  axios.delete(`${process.env.LOCAL_API_URL}/tags/${id}/`);
+  axios.delete(`${process.env.REACT_APP_API_URL}/tags/${id}/`);
 
 export const useMutateTag = () => {
   const queryClient = useQueryClient();

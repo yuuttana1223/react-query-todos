@@ -3,7 +3,9 @@ import { useQuery } from "react-query";
 import { Task } from "types";
 
 const fetchAllTasks = async () => {
-  const res = await axios.get<Task[]>(`${process.env.LOCAL_API_URL}/tasks/`);
+  const res = await axios.get<Task[]>(
+    `${process.env.REACT_APP_API_URL}/tasks/`
+  );
   return res.data;
 };
 

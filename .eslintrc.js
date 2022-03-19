@@ -9,8 +9,9 @@ module.exports = {
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
-    "prettier",
+    "plugin:react-hooks/recommended",
     "plugin:react/jsx-runtime",
+    "prettier",
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -21,5 +22,8 @@ module.exports = {
     sourceType: "module",
   },
   plugins: ["react", "@typescript-eslint", "tailwindcss"],
-  rules: {},
+  rules: {
+    "react/prop-types": "off",
+    "react/display-name": "off",
+  },
 };

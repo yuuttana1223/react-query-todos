@@ -5,13 +5,13 @@ import axios from "axios";
 import { resetEditedTask } from "slices/taskSlice";
 
 const postTask = async (task: Omit<EditTask, "id">) =>
-  axios.post<Task>(`${process.env.LOCAL_API_URL}/tasks/`, task);
+  axios.post<Task>(`${process.env.REACT_APP_API_URL}/tasks/`, task);
 
 const patchTask = async (task: EditTask) =>
-  axios.patch<Task>(`${process.env.LOCAL_API_URL}/tasks/${task.id}/`, task);
+  axios.patch<Task>(`${process.env.REACT_APP_API_URL}/tasks/${task.id}/`, task);
 
 const deleteTask = async (id: number) =>
-  axios.delete(`${process.env.LOCAL_API_URL}/tasks/${id}/`);
+  axios.delete(`${process.env.REACT_APP_API_URL}/tasks/${id}/`);
 
 export const useMutateTask = () => {
   const dispatch = useAppDispatch();
@@ -41,12 +41,12 @@ export const useMutateTask = () => {
   });
 
   const deleteTaskMutation = useMutation(deleteTask, {
-    onSuccess: (res) => {
+    onSuccess: (_res, taskId) => {
       const prevTasks = queryClient.getQueryData<Task[]>("tasks");
       if (prevTasks) {
         queryClient.setQueryData<Task[]>(
           "tasks",
-          prevTasks.filter((task) => task.id !== res.data.id)
+          prevTasks.filter((task) => task.id !== taskId)
         );
       }
       dispatch(resetEditedTask());
