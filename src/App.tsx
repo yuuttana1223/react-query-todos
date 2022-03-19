@@ -4,6 +4,7 @@ import { VFC } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { TagsPage } from "pages/tags";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -21,7 +22,7 @@ export const App: VFC = () => {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<TasksPage />} />
-            <Route path="/tasks" element={<TasksPage />} />
+            <Route path="/tags" element={<TagsPage />} />
           </Routes>
         </BrowserRouter>
       </Layout>

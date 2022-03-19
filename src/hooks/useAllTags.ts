@@ -11,6 +11,6 @@ export const useAllTags = () => {
   return useQuery<Tag[], Error>({
     queryKey: "tags",
     queryFn: fetchAllTags,
-    staleTime: 60000,
+    staleTime: Infinity,
   });
 };

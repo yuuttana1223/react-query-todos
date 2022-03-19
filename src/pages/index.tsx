@@ -11,7 +11,7 @@ export const TasksPage: VFC = () => {
   console.log("TasksPage");
 
   return (
-    <div>
+    <>
       <div className="text-center">
         <input
           type="text"
@@ -31,6 +31,6 @@ export const TasksPage: VFC = () => {
         className="mt-2 w-5 h-5 text-blue-500 cursor-pointer"
       />
       <p>Tag Page</p>
-    </div>
+    </>
   );
 };

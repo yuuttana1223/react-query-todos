@@ -14,5 +14,7 @@ export const useAllTasks = () => {
     queryKey: "tasks",
     queryFn: fetchAllTasks,
     staleTime: 0,
+    refetchOnWindowFocus: true,
+    // refetchInterval: 5000,
   });
 };

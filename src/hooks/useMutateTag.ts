@@ -41,12 +41,12 @@ export const useMutateTag = () => {
   });
 
   const deleteTagMutation = useMutation(deleteTag, {
-    onSuccess: (res) => {
+    onSuccess: (_res, tagId) => {
       const prevTags = queryClient.getQueryData<Tag[]>("tags");
       if (prevTags) {
         queryClient.setQueryData<Tag[]>(
           "tags",
-          prevTags.filter((tag) => tag.id !== res.data.id)
+          prevTags.filter((tag) => tag.id !== tagId)
         );
       }
       dispatch(resetEditedTag());
